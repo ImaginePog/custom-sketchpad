@@ -1,23 +1,24 @@
 const canvas = document.querySelector(".canvas");
 const gridSizeSlider = document.querySelector("#size-slider");
 const displaySize = document.querySelector(".size-display");
+const colorSliders = document.querySelectorAll(".color-slider");
+
+const displayRed = document.querySelector(".red-display");
+const displayGreen = document.querySelector(".green-display");
+const displayBlue = document.querySelector(".blue-display");
+
+let color;
+let redValue = 0;
+let greenValue = 0;
+let blueValue = 0;
 
 function paintSquare(e) {
-	e.target.style.backgroundColor = "Red";
+	console.log(color);
+	e.target.style.backgroundColor = color;
 }
 
 function resetCanvas() {
 	canvas.replaceChildren();
-}
-
-function updateGridSize() {
-	gridSize = gridSizeSlider.value;
-	displaySize.textContent = `Grid Size: ${gridSize}x${gridSize}`;
-	resetCanvas();
-	createCanvas();
-}
-
-function createCanvas() {
 	for (let i = 0; i < gridSize; ++i) {
 		const row = document.createElement("div");
 		row.classList.add("row");
@@ -34,5 +35,40 @@ function createCanvas() {
 	}
 }
 
+function updateGridSize() {
+	gridSize = gridSizeSlider.value;
+	displaySize.textContent = `Grid Size: ${gridSize}x${gridSize}`;
+	resetCanvas();
+}
+
 gridSizeSlider.addEventListener("input", updateGridSize);
+
+function updateColorSlider(e) {
+	const sliderType = e.target.getAttribute("id");
+	switch (sliderType) {
+		case "red":
+			redValue = e.target.value;
+			displayRed.textContent = `Red: ${redValue}`;
+			break;
+		case "green":
+			greenValue = e.target.value;
+			displayGreen.textContent = `Green: ${greenValue}`;
+			break;
+		case "blue":
+			blueValue = e.target.value;
+			displayBlue.textContent = `Blue: ${blueValue}`;
+			break;
+	}
+	updateBrush();
+}
+
+colorSliders.forEach((slider) => {
+	slider.addEventListener("input", updateColorSlider);
+});
+
+function updateBrush() {
+	color = `rgb(${redValue},${greenValue},${blueValue})`;
+}
+
 updateGridSize();
+updateBrush();
