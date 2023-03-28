@@ -20,39 +20,44 @@
 				/>
 			</div>
 			<div class="color-setting">
-				<div>
-					<label for="red" class="red-display">Red: 0</label>
-					<input
-						type="range"
-						min="0"
-						max="255"
-						value="0"
-						id="red"
-						class="color-slider"
-					/>
+				<div class="color-sliders">
+					<div>
+						<label for="red" class="red-display">Red: 0</label>
+						<input
+							type="range"
+							min="0"
+							max="255"
+							value="0"
+							id="red"
+							class="color-slider"
+						/>
+					</div>
+					<div>
+						<label for="green" class="green-display"
+							>Green: 0</label
+						>
+						<input
+							type="range"
+							min="0"
+							max="255"
+							value="0"
+							id="green"
+							class="color-slider"
+						/>
+					</div>
+					<div>
+						<label for="blue" class="blue-display">Blue: 0</label>
+						<input
+							type="range"
+							min="0"
+							max="255"
+							value="0"
+							id="blue"
+							class="color-slider"
+						/>
+					</div>
 				</div>
-				<div>
-					<label for="green" class="green-display">Green: 0</label>
-					<input
-						type="range"
-						min="0"
-						max="255"
-						value="0"
-						id="green"
-						class="color-slider"
-					/>
-				</div>
-				<div>
-					<label for="blue" class="blue-display">Blue: 0</label>
-					<input
-						type="range"
-						min="0"
-						max="255"
-						value="0"
-						id="blue"
-						class="color-slider"
-					/>
-				</div>
+				<div class="picked-color-display"></div>
 			</div>
 		</div>
 		<div class="canvas"></div>

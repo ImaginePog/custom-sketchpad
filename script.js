@@ -7,6 +7,8 @@ const displayRed = document.querySelector(".red-display");
 const displayGreen = document.querySelector(".green-display");
 const displayBlue = document.querySelector(".blue-display");
 
+const pickedColor = document.querySelector(".picked-color-display");
+
 let color;
 let redValue = 0;
 let greenValue = 0;
@@ -68,6 +70,7 @@ colorSliders.forEach((slider) => {
 
 function updateBrush() {
 	color = `rgb(${redValue},${greenValue},${blueValue})`;
+	pickedColor.style.backgroundColor = color;
 }
 
 updateGridSize();
