@@ -4,6 +4,7 @@ const displaySize = document.querySelector(".size-display");
 
 const resetBtn = document.querySelector(".reset-btn");
 const eraserBtn = document.querySelector(".eraser-btn");
+const randomBtn = document.querySelector(".random-btn");
 
 const colorSliders = document.querySelectorAll(".color-slider");
 const displayRed = document.querySelector(".red-display");
@@ -17,13 +18,19 @@ let greenValue = 0;
 let blueValue = 0;
 
 let eraserMode = false;
+let randomMode = false;
 
 function paintSquare(e) {
 	if (eraserMode) {
-		e.target.style.backgroundColor = "transparent";
-	} else {
-		e.target.style.backgroundColor = color;
+		color = "transparent";
+	} else if (randomMode) {
+		redValue = Math.floor(Math.random() * 255 + 1);
+		greenValue = Math.floor(Math.random() * 255 + 1);
+		blueValue = Math.floor(Math.random() * 255 + 1);
+		color = `rgb(${redValue},${greenValue},${blueValue})`;
 	}
+
+	e.target.style.backgroundColor = color;
 }
 
 function resetCanvas() {
@@ -79,6 +86,8 @@ function updateBrush() {
 }
 
 function toggleEraserMode() {
+	if (randomMode) toggleRandomMode();
+
 	eraserBtn.classList.toggle("selected-btn");
 	if (eraserMode) eraserMode = false;
 	else eraserMode = true;
@@ -88,8 +97,17 @@ colorSliders.forEach((slider) => {
 	slider.addEventListener("input", updateColorSlider);
 });
 
+function toggleRandomMode() {
+	if (eraserMode) toggleEraserMode();
+
+	randomBtn.classList.toggle("selected-btn");
+	if (randomMode) randomMode = false;
+	else randomMode = true;
+}
+
 resetBtn.addEventListener("click", resetCanvas);
 eraserBtn.addEventListener("click", toggleEraserMode);
+randomBtn.addEventListener("click", toggleRandomMode);
 
 updateGridSize();
 updateBrush();
