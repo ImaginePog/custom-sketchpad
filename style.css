@@ -84,7 +84,23 @@ h1 {
     border-radius: 8px;
 }
 
+.brush-options {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+button {
+    border: none;
+    padding: 5px 20px;
+    border-radius: 5px;
+    color: white;
+    background-color: black;
+    font-weight: bold;
+    font-size: 16px;
+}
 /*** FOOTER ***/
+
 footer {
     align-self: center;
     padding: 12px;
@@ -101,4 +117,10 @@ footer {
   flex: 1;
   box-sizing: border-box;
   border: 0.1px solid rgba(190, 189, 189, 0.158);
+}
+
+.selected-btn {
+    background-color: green;
+    transform: scale(1.1);
+    box-shadow: 0 0 5px white;
 }
