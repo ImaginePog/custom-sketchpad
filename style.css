@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
+.canvas {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    width: 500px;
+    height: 10px;
+    display: flex;
+}
+
+.square {
+    width: 10px;
+    height: 10px;
+    background-color: green;
+}
