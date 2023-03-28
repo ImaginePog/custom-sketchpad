@@ -1,13 +1,28 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(65, 58, 80);
+    min-height: 100vh;
+    margin: 0;
+    color: white;
+}
+
+.sketchpad {
     display: flex;
     justify-content: center;
     gap: 50px;
+    padding: 48px;
 }
 
 /*** COMMON ***/
 
 .settings, .canvas {
-    border: 5px solid black;
+    border: 3px solid white;
 }
 
 /*** CANVAS ***/
@@ -64,6 +79,12 @@ body {
     border-radius: 8px;
 }
 
+/*** FOOTER ***/
+footer {
+    align-self: center;
+    padding: 12px;
+}
+
 /*** DYNAMIC ***/
 
 .row {
@@ -73,4 +94,6 @@ body {
 
 .square {
   flex: 1;
+  box-sizing: border-box;
+  border: 0.1px solid rgba(190, 189, 189, 0.329);
 }
