@@ -8,12 +8,10 @@
 }
 
 .row {
-    width: 500px;
-    height: 10px;
     display: flex;
+    flex: 1;
 }
 
 .square {
-    width: 10px;
-    height: 10px;
+  flex: 1;
 }

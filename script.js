@@ -1,14 +1,15 @@
 const canvas = document.querySelector(".canvas");
+let gridSize = 1;
 
 function paintSquare(e) {
 	e.target.style.backgroundColor = "Red";
 }
 
-for (let i = 0; i < 50; ++i) {
+for (let i = 0; i < gridSize; ++i) {
 	const row = document.createElement("div");
 	row.classList.add("row");
 
-	for (let j = 0; j < 50; ++j) {
+	for (let j = 0; j < gridSize; ++j) {
 		const square = document.createElement("div");
 		square.classList.add("square");
 		square.addEventListener("mouseenter", paintSquare);
