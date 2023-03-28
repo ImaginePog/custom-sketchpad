@@ -4,30 +4,40 @@ body {
     gap: 50px;
 }
 
+/*** COMMON ***/
+
 .settings, .canvas {
     border: 5px solid black;
 }
 
+/*** CANVAS ***/
+
 .canvas {
-    width: 700px;
-    height: 700px;
+    width: 500px;
+    height: 500px;
     display: flex;
     flex-direction: column;
 }
 
 
 /*** SETTINGS ***/
+
 .settings {
     padding: 24px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     text-align: center;
-    gap: 24px;
+    gap: 48px;
 }
 
 .size-setting {
     display: flex;
     flex-direction: column;
+}
+
+.reset-btn {
+    align-self: center;
 }
 
 .color-setting {

@@ -1,12 +1,13 @@
 const canvas = document.querySelector(".canvas");
 const gridSizeSlider = document.querySelector("#size-slider");
 const displaySize = document.querySelector(".size-display");
-const colorSliders = document.querySelectorAll(".color-slider");
 
+const resetBtn = document.querySelector(".reset-btn");
+
+const colorSliders = document.querySelectorAll(".color-slider");
 const displayRed = document.querySelector(".red-display");
 const displayGreen = document.querySelector(".green-display");
 const displayBlue = document.querySelector(".blue-display");
-
 const pickedColor = document.querySelector(".picked-color-display");
 
 let color;
@@ -47,6 +48,7 @@ gridSizeSlider.addEventListener("input", updateGridSize);
 
 function updateColorSlider(e) {
 	const sliderType = e.target.getAttribute("id");
+	console.log(e.target);
 	switch (sliderType) {
 		case "red":
 			redValue = e.target.value;
@@ -67,6 +69,8 @@ function updateColorSlider(e) {
 colorSliders.forEach((slider) => {
 	slider.addEventListener("input", updateColorSlider);
 });
+
+resetBtn.addEventListener("click", resetCanvas);
 
 function updateBrush() {
 	color = `rgb(${redValue},${greenValue},${blueValue})`;
