@@ -12,7 +12,7 @@ function resetCanvas() {
 
 function updateGridSize() {
 	gridSize = gridSizeSlider.value;
-	displaySize.textContent = `${gridSize}x${gridSize}`;
+	displaySize.textContent = `Grid Size: ${gridSize}x${gridSize}`;
 	resetCanvas();
 	createCanvas();
 }

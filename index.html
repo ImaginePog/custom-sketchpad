@@ -8,10 +8,11 @@
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
+		<div class="settings">
+			<label for="size-slider" class="size-display"></label>
+			<input type="range" min="1" max="100" value="5" id="size-slider" />
+		</div>
 		<div class="canvas"></div>
-		<label for="size-slider">Grid Size:</label>
-		<input type="range" min="1" max="100" value="5" id="size-slider" />
-		<p class="size-display"></p>
 		<script src="script.js"></script>
 	</body>
 </html>

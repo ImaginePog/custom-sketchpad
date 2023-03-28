@@ -1,11 +1,30 @@
+body {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.settings, .canvas {
+    border: 5px solid black;
+}
+
 .canvas {
     width: 500px;
     height: 500px;
     display: flex;
     flex-direction: column;
-    border: 5px solid black;
-    margin: auto;
 }
+
+
+/*** SETTINGS ***/
+.settings {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+/*** DYNAMIC ***/
 
 .row {
     display: flex;
