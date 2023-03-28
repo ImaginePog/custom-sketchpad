@@ -1,6 +1,6 @@
 const canvas = document.querySelector(".canvas");
 
-function paint(e) {
+function paintSquare(e) {
 	e.target.style.backgroundColor = "Red";
 }
 
