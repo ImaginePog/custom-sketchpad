@@ -28,6 +28,7 @@ function paintSquare(e) {
 		greenValue = Math.floor(Math.random() * 255 + 1);
 		blueValue = Math.floor(Math.random() * 255 + 1);
 		color = `rgb(${redValue},${greenValue},${blueValue})`;
+		updateBrush();
 	}
 
 	e.target.style.backgroundColor = color;
@@ -61,26 +62,42 @@ gridSizeSlider.addEventListener("input", updateGridSize);
 
 function updateColorSlider(e) {
 	if (eraserMode) toggleEraserMode();
+	else if (randomMode) toggleRandomMode();
+
 	const sliderType = e.target.getAttribute("id");
 	console.log(e.target);
 	switch (sliderType) {
 		case "red":
 			redValue = e.target.value;
-			displayRed.textContent = `Red: ${redValue}`;
 			break;
 		case "green":
 			greenValue = e.target.value;
-			displayGreen.textContent = `Green: ${greenValue}`;
 			break;
 		case "blue":
 			blueValue = e.target.value;
-			displayBlue.textContent = `Blue: ${blueValue}`;
 			break;
 	}
 	updateBrush();
 }
 
 function updateBrush() {
+	displayRed.textContent = `Red: ${redValue}`;
+	displayGreen.textContent = `Green: ${greenValue}`;
+	displayBlue.textContent = `Blue: ${blueValue}`;
+	colorSliders.forEach((slider) => {
+		const sliderType = slider.getAttribute("id");
+		switch (sliderType) {
+			case "red":
+				slider.value = redValue;
+				break;
+			case "green":
+				slider.value = greenValue;
+				break;
+			case "blue":
+				slider.value = blueValue;
+				break;
+		}
+	});
 	color = `rgb(${redValue},${greenValue},${blueValue})`;
 	pickedColor.style.backgroundColor = color;
 }
